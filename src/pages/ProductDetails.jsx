@@ -2,6 +2,9 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const ProductDetails = () => {
 
     const [product, setProduct] = useState({})
@@ -14,11 +17,36 @@ const ProductDetails = () => {
         .catch(err=> console.log(err))
     }, [id])
 
+
+    const addToCart=()=>{
+      const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+      const productItem = {
+        id: product.id,
+        title:product.title,
+        price:product.price,
+        category:product.category ,
+        rating: product.rating,
+        quantity: 1
+      }
+
+      const existingItem = cartItems && cartItems.find(item=> item.id === productItem.id)
+
+      if (existingItem){
+        toast.error("Product is already in the cart.")
+      }
+      else{
+        cartItems.push(productItem)
+        localStorage.setItem("cartItems", JSON.stringify(cartItems))
+        toast.success(`${productItem.title} is added to the cart.`)
+      }
+    }
+
   return (
     <>
 
+    <ToastContainer theme='colored' autoClose={1000} position='top-center' />
 
-<div className="container my-3">
+  <div className="container my-3">
         <div className="row d-flex justify-content-evenly align-items-center shadow">
 
           <div className="col-md-4">
@@ -32,7 +60,7 @@ const ProductDetails = () => {
             <p>{product.description}</p>
 
             <div className="my-2">
-              <button className="btn btn-warning" >Add to Cart</button>
+              <button className="btn btn-warning" onClick={addToCart}>Add to Cart</button>
             </div>
           </div>
         </div>

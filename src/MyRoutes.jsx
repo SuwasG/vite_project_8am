@@ -6,6 +6,7 @@ import Homepage from './pages/Homepage'
 import State from './hooks/State'
 import Products from './pages/Products'
 import ProductDetails from './pages/ProductDetails'
+import Cart from './pages/Cart'
 
 const MyRoutes = () => {
   return (
@@ -19,6 +20,7 @@ const MyRoutes = () => {
             <Route index element={<Homepage/>}/>
             <Route path='products' element={<Products/>}/>
             <Route path='product-details/:productID' element={<ProductDetails/>}/>
+            <Route path='cart' element={<Cart/>}/>
               
           </Route>
 
