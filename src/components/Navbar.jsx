@@ -1,4 +1,5 @@
 import React from 'react'
+import { FaShoppingCart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
@@ -44,7 +45,9 @@ const Navbar = () => {
                 </div>
                 
                 <div className="mb-2 mb-lg-0 ms-2">
-                  <i className='bx bx-cart fs-1 px-2' ></i>               
+                  <Link to="/cart" className='text-decoration-none'>
+                  <FaShoppingCart className='fs-2 text-dark' />   
+                  </Link>
                  </div>
             </div>
           

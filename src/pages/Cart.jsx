@@ -21,17 +21,20 @@ const Cart = () => {
   }, []);
   
 
-const increaseQty=id=>{
-  const updatedItems=items.map(item=>{
-    if(item.id===id && item.quantity<=5){  // less than stock pani yahi line maa rakhne.
-      return{...item, quantity: item.quantity+1}
-    }
-    return item // rtn garesi funcn jaha call gareko xa tyai janxa.
-   
-  })
-  setItems(updatedItems)   //state change
-  localStorage.setItem('cartItems', JSON.stringify(updatedItems))
-}
+  const increaseQty=id=>{
+    const updatedItems=items.map( item=>{
+      if(item.id === id  && item.quantity<=5 ){
+        return {...item, quantity:item.quantity+1}
+      }
+      return item 
+    })
+
+    setItems(updatedItems)
+    localStorage.setItem('cartItems', JSON.stringify(updatedItems))
+    
+   }
+// spread operator  ...
+
 const decreaseQty=id=>{
   const updatedItems=items.map(item=>{
     if(item.id===id && item.quantity>1){  
@@ -153,7 +156,8 @@ const removeCartHandler=id=>{
                         <h3 className='fw-bold'>Cart Summary</h3>
                         <hr/>
                         <p><strong>Units:</strong>{items.reduce((a,b)=>a+ Number(b.quantity),0)} </p>
-                        <p><strong>Total:</strong>${items.reduce((ac,item)=> ac+(item.quantity*item.price) ,0  )}    </p>
+                        <p><strong>Total:</strong>${items.reduce((ac,item)=> ac+(item.quantity*item.price) ,0  )}    
+                        </p>
                         <hr />
                         <button className="btn btn-warning">Check Out</button>
                   </div>

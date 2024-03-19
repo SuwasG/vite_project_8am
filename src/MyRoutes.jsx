@@ -7,6 +7,7 @@ import State from './hooks/State'
 import Products from './pages/Products'
 import ProductDetails from './pages/ProductDetails'
 import Cart from './pages/Cart'
+import Register from './pages/Register'
 
 const MyRoutes = () => {
   return (
@@ -21,11 +22,12 @@ const MyRoutes = () => {
             <Route path='products' element={<Products/>}/>
             <Route path='product-details/:productID' element={<ProductDetails/>}/>
             <Route path='cart' element={<Cart/>}/>
-              
+            <Route path='register' element={<Register/>}/>
           </Route>
 
             <Route path='test' element={<Test/>}/>
             <Route path='state' element={<State/>}/>
+            
      
 
         </Routes>
