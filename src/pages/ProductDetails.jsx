@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom'
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -43,6 +44,10 @@ const ProductDetails = () => {
 
   return (
     <>
+
+    <Helmet>
+      <title>{product.title}</title>
+    </Helmet>
 
     <ToastContainer theme='colored' autoClose={1000} position='top-center' />
 

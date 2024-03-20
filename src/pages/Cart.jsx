@@ -74,7 +74,7 @@ const removeCartHandler=id=>{
             </h2>
             <div className="row d-flex align-items-center">
             <div className="col-6 offset-3">
-            <img src='/images/cart.png' alt='cart-photo' height={'250px'} width={'500px'} className='rounded-4'/>
+            <img src='/images/graphql2.png' alt='cart-photo' height={'250px'} width={'500px'} className='rounded-4'/>
             </div>
            
            <div className="col-3">

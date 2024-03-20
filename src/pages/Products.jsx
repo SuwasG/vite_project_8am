@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Card from '../components/Card'
 import axios from 'axios'
+import { Helmet } from 'react-helmet'
 const Products = () => {
   const [products, setProducts] = useState([])
   const [limit, setLimit] = useState(6)
@@ -26,6 +27,10 @@ const Products = () => {
 
   return (
     <>
+
+    <Helmet>
+      <title>products</title>
+    </Helmet>
 
 <div class="container my-5">
         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
